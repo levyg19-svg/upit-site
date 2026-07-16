@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Request Access — Up It Claims Solutions Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0A1424;
+    --ink-2:#111f38;
+    --paper:#ffffff;
+    --mist:#f4f6fa;
+    --line:#e4e8f0;
+    --ember:#FF5A1F;
+    --ember-deep:#e8480f;
+    --steel:#5b7bb0;
+    --text-dark:#0A1424;
+    --text-mute:#5a6577;
+    --text-light:#e9eef7;
+    --text-light-mute:#9fb0c8;
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--text-dark);
+    background:var(--mist);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;flex-direction:column;
+  }
+  h1,h2,h3,.display{font-family:'Archivo',sans-serif;letter-spacing:-0.02em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,20,36,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--text-light)}
+  .brand .mark{
+    width:32px;height:32px;border-radius:8px;
+    background:linear-gradient(135deg,var(--ember),var(--ember-deep));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Archivo';font-weight:900;color:#fff;font-size:18px;
+    box-shadow:0 4px 14px rgba(255,90,31,.35);
+  }
+  .brand b{font-family:'Archivo';font-weight:800;font-size:16px;letter-spacing:-.01em}
+  .brand span{color:var(--text-light-mute);font-weight:500}
+  nav.links{display:flex;gap:30px;align-items:center}
+  nav.links a{color:var(--text-light-mute);font-size:14px;font-weight:500}
+  nav.links a:hover{color:var(--text-light)}
+  .call-btn{
+    background:var(--ember);color:#fff;padding:10px 18px;border-radius:9px;
+    font-weight:700;font-size:14px;font-family:'Archivo';
+    transition:transform .15s ease, background .15s ease;
+  }
+  .call-btn:hover{background:var(--ember-deep);transform:translateY(-1px)}
+
+  /* ---------- HEADER BAND ---------- */
+  .top{
+    background:
+      radial-gradient(1000px 520px at 80% -20%, rgba(255,90,31,.18), transparent 60%),
+      radial-gradient(800px 460px at 5% 130%, rgba(91,123,176,.16), transparent 55%),
+      var(--ink);
+    color:var(--text-light);
+    padding:74px 0 150px;
+    text-align:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--ember);font-family:'Archivo';font-weight:700;
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:22px;
+  }
+  .eyebrow::before,.eyebrow::after{content:"";width:24px;height:2px;background:var(--ember)}
+  .top h1{
+    font-weight:900;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.0;
+    max-width:16ch;margin:0 auto;
+  }
+  .top h1 .hl{color:var(--ember)}
+  .top p{margin:22px auto 0;max-width:52ch;color:var(--text-light-mute);font-size:1.1rem}
+
+  /* ---------- FORM CARD ---------- */
+  .form-shell{flex:1}
+  .card-wrap{max-width:640px;margin:-110px auto 80px;padding:0 24px}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:20px;
+    padding:44px 40px;box-shadow:0 26px 60px rgba(10,20,36,.14);
+  }
+  .card h2{font-size:1.7rem;font-weight:800;margin-bottom:8px}
+  .card .lede{color:var(--text-mute);font-size:1.02rem;margin-bottom:30px}
+
+  .field{margin-bottom:22px}
+  .field label{
+    display:block;font-family:'Archivo';font-weight:700;font-size:13px;
+    letter-spacing:.04em;text-transform:uppercase;color:var(--text-dark);margin-bottom:9px;
+  }
+  .field .req{color:var(--ember)}
+  select,input{
+    width:100%;font-family:'Inter',sans-serif;font-size:1rem;color:var(--text-dark);
+    padding:14px 16px;border:1.5px solid var(--line);border-radius:11px;background:var(--paper);
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  select{
+    appearance:none;-webkit-appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%235a6577' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 16px center;padding-right:44px;
+  }
+  select:focus,input:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 4px rgba(255,90,31,.12)}
+  select:invalid{color:var(--text-mute)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+  .submit{
+    width:100%;margin-top:8px;font-family:'Archivo';font-weight:700;font-size:1.05rem;
+    color:#fff;background:var(--ember);border:none;border-radius:12px;padding:17px;cursor:pointer;
+    box-shadow:0 10px 26px rgba(255,90,31,.32);transition:transform .15s ease, background .15s ease;
+  }
+  .submit:hover{background:var(--ember-deep);transform:translateY(-2px)}
+  .err{color:var(--ember-deep);font-size:.9rem;margin-top:14px;text-align:center;display:none}
+  .err.show{display:block}
+
+  /* ---------- THANK YOU ---------- */
+  .thanks{display:none;text-align:center;padding:14px 6px}
+  .thanks.show{display:block;animation:rise .5s cubic-bezier(.2,.7,.2,1)}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .check{
+    width:74px;height:74px;border-radius:50%;margin:0 auto 24px;
+    background:linear-gradient(135deg,var(--ember),var(--ember-deep));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 30px rgba(255,90,31,.35);
+  }
+  .check svg{width:34px;height:34px}
+  .thanks h2{font-size:1.9rem;font-weight:900;margin-bottom:12px}
+  .thanks p{color:var(--text-mute);font-size:1.08rem;max-width:40ch;margin:0 auto}
+  .thanks .back{
+    display:inline-block;margin-top:30px;font-family:'Archivo';font-weight:700;font-size:.95rem;
+    color:var(--ember);border:1.5px solid var(--ember);border-radius:11px;padding:13px 24px;
+    transition:background .15s ease,color .15s ease;
+  }
+  .thanks .back:hover{background:var(--ember);color:#fff}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:var(--text-light-mute);padding:44px 0 40px;border-top:1px solid rgba(255,255,255,.08)}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  footer .brand b{color:var(--text-light)}
+  .foot-links{display:flex;gap:26px;font-size:14px}
+  .foot-links a:hover{color:var(--ember)}
+  .foot-legal{margin-top:26px;font-size:13px;color:var(--text-light-mute);opacity:.75}
+
+  @media(max-width:820px){
+    nav.links{display:none}
+    .row{grid-template-columns:1fr}
+    .card{padding:34px 24px}
+    .top{padding:56px 0 140px}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.thanks.show{animation:none}}
+  :focus-visible{outline:3px solid var(--ember);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Up It Claims Solutions home">
+      <span class="mark">U</span>
+      <b>Up It Claims Solutions<span> Inc.</span></b>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="index.html#platform">Platform</a>
+      <a href="index.html#who">Who it's for</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <a class="call-btn" href="tel:+18457777001">Call 845-777-7001</a>
+  </div>
+</header>
+
+<!-- HEADER BAND -->
+<section class="top">
+  <div class="wrap">
+    <div class="eyebrow">Request Access</div>
+    <h1>Get early access to the <span class="hl">platform</span>.</h1>
+    <p>Tell us who you are and how soon you need it. One of our team members will reach out to get you set up.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<div class="form-shell">
+  <div class="card-wrap">
+    <div class="card">
+
+      <div id="formView">
+        <h2>Request the platform</h2>
+        <p class="lede">A few quick details and we'll take it from there.</p>
+
+        <div class="field">
+          <label for="role">I am a <span class="req">*</span></label>
+          <select id="role" required>
+            <option value="" disabled selected>Select one…</option>
+            <option value="Consumer">Consumer</option>
+            <option value="Public Adjuster">Public Adjuster</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="timing">How soon do you need it <span class="req">*</span></label>
+          <select id="timing" required>
+            <option value="" disabled selected>Select a timeframe…</option>
+            <option value="ASAP">ASAP</option>
+            <option value="Within the next week">Within the next week</option>
+            <option value="Within the next month">Within the next month</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="email">Email address <span class="req">*</span></label>
+            <input id="email" type="email" placeholder="you@email.com" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone number <span class="req">*</span></label>
+            <input id="phone" type="tel" placeholder="(845) 000-0000" required />
+          </div>
+        </div>
+
+        <button class="submit" id="submitBtn" type="button">Request →</button>
+        <div class="err" id="err">Please complete every field before submitting.</div>
+      </div>
+
+      <div class="thanks" id="thanksView">
+        <div class="check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h2>Thank you for the request.</h2>
+        <p>One of our team members will get back to you shortly.</p>
+        <a class="back" href="index.html">← Back to home</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <a class="brand" href="index.html">
+        <span class="mark">U</span>
+        <b>Up It Claims Solutions <span>Inc.</span></b>
+      </a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="index.html#platform">Platform</a>
+        <a href="index.html#who">Who it's for</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#about">About</a>
+        <a href="tel:+18457777001">Contact</a>
+      </nav>
+    </div>
+    <div class="foot-legal">© 2026 Up It Claims Solutions Inc. — Proprietary software for consumers and public adjusters.</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('submitBtn');
+    var err = document.getElementById('err');
+    var formView = document.getElementById('formView');
+    var thanksView = document.getElementById('thanksView');
+    var fields = ['role','timing','email','phone'];
+
+    function isEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    btn.addEventListener('click', function(){
+      var ok = true;
+      fields.forEach(function(id){
+        var el = document.getElementById(id);
+        var val = (el.value || '').trim();
+        if(!val){ ok = false; el.style.borderColor = 'var(--ember)'; }
+        else { el.style.borderColor = ''; }
+      });
+      var emailEl = document.getElementById('email');
+      if(emailEl.value.trim() && !isEmail(emailEl.value.trim())){ ok = false; emailEl.style.borderColor = 'var(--ember)'; }
+
+      if(!ok){ err.classList.add('show'); return; }
+      err.classList.remove('show');
+
+      // No backend connected yet — front-end confirmation only.
+      formView.style.display = 'none';
+      thanksView.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+</body>
+</html>

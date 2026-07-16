@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Up It Claims Solutions Inc. — Proprietary Claims Software</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0A1424;          /* deep navy-black */
+    --ink-2:#111f38;        /* raised navy */
+    --paper:#ffffff;
+    --mist:#f4f6fa;         /* muted light surface */
+    --line:#e4e8f0;
+    --ember:#FF5A1F;        /* accent — fire heritage, energetic tech */
+    --ember-deep:#e8480f;
+    --steel:#5b7bb0;        /* cool secondary */
+    --text-dark:#0A1424;
+    --text-mute:#5a6577;
+    --text-light:#e9eef7;
+    --text-light-mute:#9fb0c8;
+    --maxw:1160px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--text-dark);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Archivo',sans-serif;letter-spacing:-0.02em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,20,36,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--text-light)}
+  .brand .mark{
+    width:32px;height:32px;border-radius:8px;
+    background:linear-gradient(135deg,var(--ember),var(--ember-deep));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Archivo';font-weight:900;color:#fff;font-size:18px;
+    box-shadow:0 4px 14px rgba(255,90,31,.35);
+  }
+  .brand b{font-family:'Archivo';font-weight:800;font-size:16px;letter-spacing:-.01em}
+  .brand span{color:var(--text-light-mute);font-weight:500}
+  nav.links{display:flex;gap:30px;align-items:center}
+  nav.links a{color:var(--text-light-mute);font-size:14px;font-weight:500}
+  nav.links a:hover{color:var(--text-light)}
+  .call-btn{
+    background:var(--ember);color:#fff;padding:10px 18px;border-radius:9px;
+    font-weight:700;font-size:14px;font-family:'Archivo';
+    transition:transform .15s ease, background .15s ease;
+  }
+  .call-btn:hover{background:var(--ember-deep);transform:translateY(-1px)}
+  .menu-toggle{display:none}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(1100px 600px at 78% -10%, rgba(255,90,31,.18), transparent 60%),
+      radial-gradient(900px 500px at 8% 110%, rgba(91,123,176,.16), transparent 55%),
+      var(--ink);
+    color:var(--text-light);
+    padding:96px 0 108px;
+    position:relative;overflow:hidden;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--ember);font-family:'Archivo';font-weight:700;
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--ember)}
+  h1.hero-h1{
+    font-weight:900;
+    font-size:clamp(2.6rem,6.4vw,5.3rem);
+    line-height:.98;
+    max-width:15ch;
+  }
+  h1.hero-h1 .hl{color:var(--ember)}
+  .hero-sub{
+    margin-top:28px;max-width:56ch;
+    font-size:clamp(1.05rem,1.7vw,1.28rem);
+    color:var(--text-light-mute);line-height:1.6;
+  }
+  .hero-cta{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+  .btn-primary,.btn-ghost{
+    font-family:'Archivo';font-weight:700;font-size:15px;
+    padding:15px 26px;border-radius:11px;display:inline-flex;align-items:center;gap:9px;
+    transition:transform .15s ease,background .15s ease,border-color .15s ease;
+  }
+  .btn-primary{background:var(--ember);color:#fff;box-shadow:0 8px 24px rgba(255,90,31,.3)}
+  .btn-primary:hover{background:var(--ember-deep);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--text-light);border:1.5px solid rgba(255,255,255,.22)}
+  .btn-ghost:hover{border-color:var(--ember);color:#fff}
+
+  /* animated entrance */
+  .reveal{opacity:0;transform:translateY(18px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  .reveal.d1{animation-delay:.06s}
+  .reveal.d2{animation-delay:.16s}
+  .reveal.d3{animation-delay:.26s}
+  .reveal.d4{animation-delay:.36s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ---------- POSITIONING BAND ---------- */
+  .band{background:var(--ink-2);color:var(--text-light);padding:26px 0;border-top:1px solid rgba(255,255,255,.07)}
+  .band .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center;text-align:center}
+  .band p{font-family:'Archivo';font-weight:600;font-size:clamp(1rem,1.6vw,1.25rem);letter-spacing:-.01em}
+  .band .dot{width:6px;height:6px;border-radius:50%;background:var(--ember)}
+  .band .accent{color:var(--ember)}
+
+  /* ---------- SECTION SHELL ---------- */
+  section.blk{padding:92px 0}
+  .sec-eyebrow{
+    color:var(--ember);font-family:'Archivo';font-weight:700;font-size:13px;
+    letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px;
+  }
+  h2.sec-title{font-weight:800;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.05;max-width:20ch}
+  .sec-intro{margin-top:16px;max-width:60ch;color:var(--text-mute);font-size:1.08rem}
+
+  /* ---------- PLATFORM GRID ---------- */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+  .card{
+    border:1px solid var(--line);border-radius:16px;padding:30px 28px;background:var(--paper);
+    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(10,20,36,.09);border-color:transparent}
+  .card .ico{
+    width:46px;height:46px;border-radius:11px;margin-bottom:18px;
+    background:linear-gradient(135deg,rgba(255,90,31,.14),rgba(255,90,31,.06));
+    color:var(--ember);display:flex;align-items:center;justify-content:center;
+    font-family:'Archivo';font-weight:900;font-size:19px;
+  }
+  .card h3{font-size:1.28rem;font-weight:700;margin-bottom:9px}
+  .card p{color:var(--text-mute);font-size:1rem}
+
+  /* ---------- AUDIENCE ---------- */
+  .audience{background:var(--mist)}
+  .aud-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
+  .aud{
+    background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:38px 34px;
+    position:relative;overflow:hidden;
+  }
+  .aud::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--ember)}
+  .aud .tag{font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ember)}
+  .aud h3{font-size:1.6rem;font-weight:800;margin:12px 0 12px}
+  .aud p{color:var(--text-mute);font-size:1.04rem}
+
+  /* ---------- METRICS ---------- */
+  .metrics{background:var(--ink);color:var(--text-light)}
+  .met-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:52px;border-top:1px solid rgba(255,255,255,.12)}
+  .met{padding:40px 26px;border-right:1px solid rgba(255,255,255,.12)}
+  .met:last-child{border-right:none}
+  .met .n{font-family:'Archivo';font-weight:900;font-size:clamp(2.4rem,5vw,3.6rem);color:var(--ember);line-height:1}
+  .met .l{margin-top:12px;color:var(--text-light-mute);font-size:1rem;max-width:26ch}
+
+  /* ---------- HOW ---------- */
+  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+  .step{padding:30px 26px;border:1px solid var(--line);border-radius:16px;position:relative}
+  .step .num{font-family:'Archivo';font-weight:900;font-size:2.4rem;color:var(--line)}
+  .step h3{font-size:1.2rem;font-weight:700;margin:6px 0 8px}
+  .step p{color:var(--text-mute);font-size:.98rem}
+
+  /* ---------- CTA ---------- */
+  .cta{
+    background:
+      radial-gradient(700px 400px at 85% 20%, rgba(255,90,31,.22), transparent 60%),
+      var(--ink-2);
+    color:var(--text-light);text-align:center;padding:92px 0;
+  }
+  .cta h2{font-weight:900;font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.02;max-width:20ch;margin:0 auto}
+  .cta p{margin:20px auto 0;max-width:52ch;color:var(--text-light-mute);font-size:1.1rem}
+  .cta .hero-cta{justify-content:center;margin-top:36px}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:var(--text-light-mute);padding:48px 0 40px;border-top:1px solid rgba(255,255,255,.08)}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  footer .brand b{color:var(--text-light)}
+  .foot-links{display:flex;gap:26px;font-size:14px}
+  .foot-links a:hover{color:var(--ember)}
+  .foot-legal{margin-top:28px;font-size:13px;color:var(--text-light-mute);opacity:.75}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:820px){
+    nav.links{display:none}
+    .grid,.aud-grid,.how-grid,.met-grid{grid-template-columns:1fr}
+    .met{border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}
+    .met:last-child{border-bottom:none}
+    section.blk{padding:64px 0}
+    .hero{padding:70px 0 78px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{animation:none;opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+  :focus-visible{outline:3px solid var(--ember);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Up It Claims Solutions home">
+      <span class="mark">U</span>
+      <b>Up It Claims Solutions<span> Inc.</span></b>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#platform">Platform</a>
+      <a href="#who">Who it's for</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="call-btn" href="tel:+18457777001">Call 845-777-7001</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow reveal d1">Technology · Software · Automation</div>
+    <h1 class="hero-h1 reveal d2">The&nbsp;#1 Proprietary <span class="hl">Software Technology</span> for Consumers &amp; Public Adjusters.</h1>
+    <p class="hero-sub reveal d3">Up It Claims Solutions is a technology company. We build the proprietary software that runs the modern insurance claim — intake, analysis, and settlement, automated end to end.</p>
+    <div class="hero-cta reveal d4">
+      <a class="btn-primary" href="request-access.html">See the platform →</a>
+      <a class="btn-ghost" href="tel:+18457777001">Call 845-777-7001</a>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONING BAND -->
+<div class="band">
+  <div class="wrap">
+    <p>We build <span class="accent">software</span>, not paperwork.</p>
+    <span class="dot"></span>
+    <p>Proprietary technology for the entire claim lifecycle.</p>
+  </div>
+</div>
+
+<!-- PLATFORM -->
+<section class="blk" id="platform">
+  <div class="wrap">
+    <div class="sec-eyebrow">The Platform</div>
+    <h2 class="sec-title">One proprietary system. The whole claim, automated.</h2>
+    <p class="sec-intro">Every module was built in-house to replace slow, manual work with data-driven software — the same technology now available to consumers and the professionals who serve them.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="ico">01</div>
+        <h3>Intake Engine</h3>
+        <p>Turn any policy document or declarations page into a structured, ready-to-work file in seconds — fields extracted, coverage flagged, nothing re-keyed.</p>
+      </div>
+      <div class="card">
+        <div class="ico">02</div>
+        <h3>Estimate Intelligence</h3>
+        <p>Automated, line-by-line comparison across estimates that surfaces every scope and dollar gap — so no item and no recovery is ever left on the table.</p>
+      </div>
+      <div class="card">
+        <div class="ico">03</div>
+        <h3>Workflow Automation</h3>
+        <p>Every file, task, deadline, and follow-up orchestrated on a single platform. The system moves the work forward so nothing slips through.</p>
+      </div>
+      <div class="card">
+        <div class="ico">04</div>
+        <h3>Evidence &amp; Documentation</h3>
+        <p>Capture, organize, and package documentation the way carriers require — a clean, defensible record built automatically as the file progresses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="blk audience" id="who">
+  <div class="wrap">
+    <div class="sec-eyebrow">Who it's for</div>
+    <h2 class="sec-title">Built for both sides of the claim.</h2>
+    <div class="aud-grid">
+      <div class="aud">
+        <span class="tag">For Consumers</span>
+        <h3>Clarity and speed on every claim.</h3>
+        <p>Software that puts homeowners and business owners on equal footing — plain-language guidance, real-time status, and a faster path to a fair outcome, without the guesswork.</p>
+      </div>
+      <div class="aud">
+        <span class="tag">For Public Adjusters</span>
+        <h3>The operating system for a modern practice.</h3>
+        <p>More files, faster cycle times, stronger recovery, leaner overhead. The technology layer that lets a lean team run like a large one — built by people who know the work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="blk metrics">
+  <div class="wrap">
+    <div class="sec-eyebrow">Why it matters</div>
+    <h2 class="sec-title" style="color:var(--text-light)">Technology that scales the work, not the headcount.</h2>
+    <div class="met-grid">
+      <div class="met">
+        <div class="n">End-to-end</div>
+        <div class="l">One platform from first notice of loss through final settlement.</div>
+      </div>
+      <div class="met">
+        <div class="n">100%</div>
+        <div class="l">Proprietary software — built in-house, not off-the-shelf.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="blk" id="how">
+  <div class="wrap">
+    <div class="sec-eyebrow">How it works</div>
+    <h2 class="sec-title">Capture. Analyze. Resolve.</h2>
+    <div class="how-grid">
+      <div class="step">
+        <div class="num">01</div>
+        <h3>Capture</h3>
+        <p>Documents, policies, and loss data flow in and become structured, usable information — instantly.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h3>Analyze</h3>
+        <p>The engine compares scope and estimates, flags gaps, and builds the strategy the data supports.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h3>Resolve</h3>
+        <p>Automated workflows drive every file toward a faster, fuller, better-documented settlement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="blk audience" id="about">
+  <div class="wrap">
+    <div class="sec-eyebrow">About</div>
+    <h2 class="sec-title">A technology firm for the insurance claim.</h2>
+    <p class="sec-intro" style="font-size:1.14rem;max-width:70ch">
+      Up It Claims Solutions Inc. builds proprietary software for the entire insurance-claim lifecycle — used by everyday consumers and by public adjusters who run their practices on it. We pair deep domain expertise with a technology platform built to make the claim faster, clearer, and fairer.
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>See the platform in action.</h2>
+    <p>Talk to us about how the technology works, what it does, and where it's headed.</p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="tel:+18457777001">Call 845-777-7001</a>
+      <a class="btn-ghost" href="#platform">Explore the platform</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <a class="brand" href="#top">
+        <span class="mark">U</span>
+        <b>Up It Claims Solutions <span>Inc.</span></b>
+      </a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#platform">Platform</a>
+        <a href="#who">Who it's for</a>
+        <a href="#how">How it works</a>
+        <a href="#about">About</a>
+        <a href="tel:+18457777001">Contact</a>
+      </nav>
+    </div>
+    <div class="foot-legal">© 2026 Up It Claims Solutions Inc. — Proprietary software for consumers and public adjusters.</div>
+  </div>
+</footer>
+
+</body>
+</html>
