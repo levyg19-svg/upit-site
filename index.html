@@ -58,16 +58,16 @@
   .nav-links a:hover{color:var(--navy)}
   .nav-phone{color:var(--gold-deep)!important;font-weight:600!important}
   @media(max-width:1000px){.nav-links a:not(.nav-cta){display:none}.brand .name,.brand .sub{display:none}}
+  @media(max-width:760px){.nav{justify-content:center}.nav-links{display:none}.brand .logo{width:60px;height:60px}}
 
   /* hero */
   .hero{position:relative;background:var(--navy);color:var(--paper);overflow:hidden}
   .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(1000px 520px at 82% -12%,rgba(187,154,70,.18),transparent 58%),radial-gradient(760px 620px at -5% 118%,rgba(18,39,71,.85),transparent 55%)}
-  .hero-seal{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:460px;height:476px;background:var(--logo) center/contain no-repeat;opacity:.08;pointer-events:none}
-  @media(max-width:900px){.hero-seal{right:-150px;width:360px;height:373px;opacity:.06}}
-  .hero-inner{position:relative;padding:100px 0 108px;max-width:760px}
-  .hero h1{font-size:clamp(2.4rem,5.4vw,3.95rem);font-weight:500;margin:20px 0 0}
-  .hero .lead{margin-top:26px;font-size:1.14rem;line-height:1.6;color:#C7D1E0;max-width:600px}
-  .hero-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .hero-seal{display:none}
+  .hero-inner{position:relative;padding:96px 0 104px;max-width:840px;margin:0 auto;text-align:center}
+  .hero h1{font-size:clamp(2.5rem,5.6vw,4.1rem);font-weight:500;line-height:1.08;margin:20px 0 0}
+  .hero .lead{margin:26px auto 0;font-size:1.14rem;line-height:1.6;color:#C7D1E0;max-width:600px}
+  .hero-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center}
   .hero-trust{margin-top:28px;font-size:.84rem;color:#93A4BC;letter-spacing:.03em}
 
   /* position band */
@@ -253,7 +253,7 @@
 <section class="hero" id="top">
   <div class="hero-seal" aria-hidden="true"></div>
   <div class="wrap hero-inner">
-    <span class="eyebrow">Public Adjusters · New York · New Jersey · Connecticut · Pennsylvania</span>
+    <span class="eyebrow">Public Adjusters · NY · NJ · CT · PA</span>
     <h1>Your property claim deserves more than a quick inspection.</h1>
     <p class="lead">Up It Claims Solutions represents homeowners and businesses after a covered property loss. We document the damage, analyze the claim, identify what may have been overlooked, and present the evidence clearly to the insurance carrier.</p>
     <div class="hero-cta">
